@@ -2,14 +2,17 @@
 #include <Network.h>
 #include <Sensor.h>
 
+/********************** Firebase configuration*********************/
 const char *api_key = "API_KEY";
 const char *user_email = "USER_EMAIL";
 const char *user_password = "USER_PASSWORD";
 const char *firebase_project_id = "FIREBASE_PROJECT_ID";
 
+/********************** WiFi configuration ************************/
 const char *ssid = "SSID";
 const char *password = "PASSWORD";
 
+/********************** Sensor configuration **********************/
 int mq4_pin = 34;
 int mq135_pin = 35;
 
