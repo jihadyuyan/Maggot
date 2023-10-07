@@ -17,17 +17,9 @@ private:
     friend void WiFiEventGotIP(WiFiEvent_t event, WiFiEventInfo_t info);
 
 public:
-    Network(/* args */);
-    void init_wifi();
-    void init_firebase();
-    void update_data(int temp, int hum, int ph);
-    bool get_kontrol_data();
-    int get_set_point();
-    String get_history_title();
-    void append_suhu_to_history(int suhu, String title);
-    void append_kelembaban_to_history(int kelembaban, String title);
-    void update_time_history(String time, String title);
-    void update_time(String time);
+    Network();
+    void init_wifi(const char *ssid, const char *password);
+    void init_firebase(const char *api_key, const char *user_email, const char *user_password, const char *firebase_project_id);
 };
 
 #endif // !Network_H_
