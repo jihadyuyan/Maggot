@@ -5,9 +5,6 @@
 
 class Sensor
 {
-private:
-    /* data */
-
 public:
     Sensor();
     void init_MQ4(int mq4_pin);
