@@ -341,3 +341,41 @@ void FuzzyLogic::fuzzy_init()
     fuzzy_set_input_output();
     fuzzy_set_rule();
 }
+
+void FuzzyLogic::fuzzy_compute(float nh3, float ch4, float co)
+{
+    fuzzy->setInput(1, nh3);
+    fuzzy->setInput(2, ch4);
+    fuzzy->setInput(3, co);
+
+    fuzzy->fuzzify();
+
+    Serial.println("input: ");
+    Serial.print("\tnh3 normal: ");
+    Serial.print(nh3_normal->getPertinence());
+    Serial.print(", nh3 tinggi: ");
+    Serial.print(nh3_tinggi->getPertinence());
+    Serial.print(", nh3 sangat tinggi: ");
+    Serial.println(nh3_sangat_tinggi->getPertinence());
+
+    Serial.print("\tch4 normal: ");
+    Serial.print(ch4_normal->getPertinence());
+    Serial.print(", ch4 tinggi: ");
+    Serial.print(ch4_tinggi->getPertinence());
+    Serial.print(", ch4 sangat tinggi: ");
+    Serial.println(ch4_sangat_tinggi->getPertinence());
+
+    Serial.print("\tco normal: ");
+    Serial.print(co_normal->getPertinence());
+    Serial.print(", co tinggi: ");
+    Serial.print(co_tinggi->getPertinence());
+    Serial.print(", co sangat tinggi: ");
+    Serial.println(co_sangat_tinggi->getPertinence());
+
+    float output = fuzzy->defuzzify(1);
+
+    Serial.println("\tResult: ");
+    Serial.print("\t\t\tRisk : ");
+    Serial.println(output);
+    Serial.println();
+}

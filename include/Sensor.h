@@ -7,8 +7,8 @@ class Sensor
 {
 public:
     Sensor();
-    void init_MQ4(int mq4_pin);
-    void init_MQ135(int mq135_pin);
+    void init_MQ4();
+    void init_MQ135();
     float get_MQ4();
     float get_MQ135();
 };

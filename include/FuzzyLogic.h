@@ -1,6 +1,6 @@
 #ifndef FuzzyLogic_H_
 #define FuzzyLogic_H_
-
+#include <Arduino.h>
 #include <Fuzzy.h>
 
 class FuzzyLogic
@@ -13,7 +13,7 @@ private:
     // set input sensor mq135
     FuzzySet *nh3_normal = new FuzzySet(0, 10, 10, 25);
     FuzzySet *nh3_tinggi = new FuzzySet(26, 30, 30, 35);
-    FuzzySet *nh3_sangat_tinggi = new FuzzySet(0, 10, 10, 25);
+    FuzzySet *nh3_sangat_tinggi = new FuzzySet(36, 45, 45, 50);
 
     // set input sensor Mq4
     FuzzySet *ch4_normal = new FuzzySet(0, 100, 100, 200);
@@ -35,6 +35,7 @@ private:
 public:
     FuzzyLogic(/* args */);
     void fuzzy_init();
+    void fuzzy_compute(float nh3, float ch4, float co);
 };
 
 #endif

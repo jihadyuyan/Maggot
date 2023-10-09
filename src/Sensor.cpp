@@ -7,13 +7,14 @@
 #define MQ135_TYPE "MQ-135"
 #define RatioMQ4CleanAir 4.4
 #define RatioMQ135CleanAir 3.6
+#define PIN_MQ4 25
+#define PIN_MQ135 26
 
 int _mq4_pin;
 int _mq135_pin;
 
-MQUnifiedsensor MQ4(board, voltage, ADC_Bit_Resolution, _mq4_pin, MQ4_TYPE);
-MQUnifiedsensor MQ135(board, voltage, ADC_Bit_Resolution, _mq135_pin, MQ135_TYPE);
-
+MQUnifiedsensor MQ135(board, voltage, ADC_Bit_Resolution, PIN_MQ135, MQ135_TYPE);
+MQUnifiedsensor MQ4(board, voltage, ADC_Bit_Resolution, PIN_MQ4, MQ4_TYPE);
 static Sensor *instance = NULL;
 
 Sensor::Sensor()
@@ -21,10 +22,8 @@ Sensor::Sensor()
     instance = this;
 }
 
-void Sensor::init_MQ4(int mq4_pin)
+void Sensor::init_MQ4()
 {
-
-    _mq4_pin = mq4_pin;
 
     MQ4.setRegressionMethod(1); // Use Least Squares Method for calculating slope and y-intercept.
     MQ4.setA(1012.7);           // Configure the ecuation to get CH4 concentration.
@@ -59,9 +58,8 @@ void Sensor::init_MQ4(int mq4_pin)
     MQ4.serialDebug(true);
 }
 
-void Sensor::init_MQ135(int mq135_pin)
+void Sensor::init_MQ135()
 {
-    _mq135_pin = mq135_pin;
 
     MQ135.setRegressionMethod(1); // Use Least Squares Method for calculating slope and y-intercept.
     MQ135.setA(102.2);            // Configure the ecuation to get NH4 concentration.
