@@ -18,8 +18,10 @@ private:
 
 public:
     Network();
+    Network(const char *firebase_project_id);
     void init_wifi(const char *ssid, const char *password);
     void init_firebase(const char *api_key, const char *user_email, const char *user_password, const char *firebase_project_id);
+    void update_firebase(float nh3, float ch4, float co, float fuzzy);
 };
 
 #endif // !Network_H_

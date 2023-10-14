@@ -2,18 +2,18 @@
 #define Sensor_H_
 
 #include <MQUnifiedsensor.h>
+#include <MQ7.h>
 
 class Sensor
 {
-private:
-    /* data */
-
 public:
     Sensor();
-    void init_MQ4(int mq4_pin);
-    void init_MQ135(int mq135_pin);
+    void init_MQ4();
+    void init_MQ135();
+    void init_MQ7();
     float get_MQ4();
     float get_MQ135();
+    float get_MQ7();
 };
 
 #endif // !Sensor_H_
